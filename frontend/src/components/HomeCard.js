@@ -1,50 +1,38 @@
-import React from "react";
-import { Card, CardContent, CardMedia, Typography } from "@mui/material";
-import styled from "styled-components";
+import React from 'react';
+import { StyledHomeCard, StyledCardMedia,StyledCardContent,TitleTypography,DateTypography,CircularProgressWrapper,CircularProgressLabel } from '../Styles/HomeCardStyled'
+import { CircularProgress } from '@mui/material';
 
-const StyledHomeCard = styled(Card)`
-  display: flex;
-  flex-direction: column;
-  flex: 0 0 auto;
-  max-width: 150px;
-  box-shadow: none!important;
-  
-`;
+const HomeCard = ({ title, image, style, date, note }) => {
+  const percentage = (note / 10) * 100;
 
-const StyledCardMedia = styled(CardMedia)`
-  border-radius: 8px;
-  height: 200px;
-`;
-
-const StyledCardContent = styled(CardContent)`
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-`;
-
-
-const TitleTypography = styled(Typography)`
-&& {
-    text-align: left;
-    overflow-wrap: break-word;
-    white-space: normal;
+  let progressColor;
+  if (percentage >= 70) {
+    progressColor = '#21D07A'; 
+  } else if (percentage >= 40) {
+    progressColor = '#D2D530'; 
+  } else {
+    progressColor = '#DB2360'; 
   }
-`;
 
-
-const HomeCard = ({ title, image, style, date }) => {
   return (
     <StyledHomeCard style={{ flex: '0 0 auto', ...style }}>
       <StyledCardMedia component="img" alt={title} image={image} />
       <StyledCardContent>
+        <CircularProgressWrapper>
+          <CircularProgress
+            variant="determinate"
+            value={percentage}
+            style={{ color: progressColor, background: '#262435', borderRadius:'50%' }}
+            size={30}
+          />
+          <CircularProgressLabel>{`${percentage}%`}</CircularProgressLabel>
+        </CircularProgressWrapper>
         <TitleTypography variant="h8" component="div" textAlign="left">
           {title}
         </TitleTypography>
-        <Typography gutterBottom variant="h8" component="div" textAlign="left">
+        <DateTypography variant="body2" component="div" textAlign="left">
           {date}
-        </Typography>
-        
+        </DateTypography>
       </StyledCardContent>
     </StyledHomeCard>
   );
