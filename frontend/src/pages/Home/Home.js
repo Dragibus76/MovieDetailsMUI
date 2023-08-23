@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import { Grid, Container, Typography, Tabs, Tab, Avatar } from "@mui/material";
+import { Grid, Container, Typography, Tabs, Tab } from "@mui/material";
 import HomeCardSection from "../../components/HomeCardSection";
-import CommentHomeCard from "../../components/CommentHomeCard";
 import HomeCommentSection from "../../components/HomeCommentSection";
-
-
+import Calendar from "../../components/Calendar";
 
 const Home = () => {
   const [activeTabFilms, setActiveTabFilms] = useState(0);
   const [activeTabSeries, setActiveTabSeries] = useState(0);
-
   const handleTabChangeFilms = (event, newValue) => {
     setActiveTabFilms(newValue);
   };
-
   const handleTabChangeSeries = (event, newValue) => {
     setActiveTabSeries(newValue);
   };
@@ -24,7 +20,6 @@ const Home = () => {
         Bienvenue sur MovieDetails
       </Typography>
       <Grid container spacing={2}>
-        {/* Première partie (90% de la largeur) */}
         <Grid item xs={12} md={9}>
           <Tabs
             value={activeTabFilms}
@@ -71,11 +66,9 @@ const Home = () => {
             <HomeCardSection category="mieux_notes_series" />
           )}
         </Grid>
-
-        {/* Deuxième partie (10% de la largeur) */}
         <Grid item xs={12} md={3}>
-          {/* Contenu de la deuxième partie */}
           <HomeCommentSection/>
+          <Calendar/>
         </Grid>
       </Grid>
     </Container>

@@ -5,17 +5,17 @@ export const HomCommentsData = [
     reponse: "Super film, j'ai adoré !",
   },
   {
-    avatar: "lien_vers_avatar_2",
+    avatar: "https://img.freepik.com/photos-gratuite/garcon-mode-veste-jaune-pantalon-bleu_71767-96.jpg?w=740&t=st=1692789116~exp=1692789716~hmac=3b464a74aceae50a1a46c326804af58cf449ea6c862a021364cdf90e4f57bd96",
     pseudo: "Doudou",
     reponse: "Les effets spéciaux étaient incroyables.",
   },
   {
-    avatar: "lien_vers_avatar_2",
+    avatar: "https://img.freepik.com/photos-gratuite/peinture-bebe-portant-sweat-capuche-jaune-etoile-dessus_1340-38729.jpg?w=740&t=st=1692789131~exp=1692789731~hmac=7974277880aa917657a4e2c2b0b0e27f4f8cca14f983c473239d91684a21ef4e",
     pseudo: "Monique",
     reponse: "C'estait Incroyable , rien a dire!.",
   },
   {
-    avatar: "lien_vers_avatar_2",
+    avatar: "https://img.freepik.com/photos-premium/portrait-chat-astronaute-dans-illustration-surrealiste-espace_691560-276.jpg?w=740",
     pseudo: "Fabrice",
     reponse: "J'ai moyenement aimé le film.",
   },

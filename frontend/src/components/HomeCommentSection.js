@@ -1,10 +1,13 @@
 import React from "react";
-import CommentHomeCard from "./CommentHomeCard";
+import CommentHomeCard from "./HomeCardComment";
 import { HomCommentsData } from "../mocks/HomeCommentData";
+import { StyledHomeCommentSection, StyledHomeCommentTitle } from '../Styles/HomeCommentSectionStyled';
 
 const HomeCommentSection = () => {
   return (
-    <div>
+    <>
+    <StyledHomeCommentTitle variant="h6" >Ils viennent de donner leurs avis !</StyledHomeCommentTitle>
+    <StyledHomeCommentSection>
       {HomCommentsData.map((comment) => (
         <CommentHomeCard
           key={comment.id}
@@ -14,7 +17,8 @@ const HomeCommentSection = () => {
           extraText={comment.reponse}
         />
       ))}
-    </div>
+    </StyledHomeCommentSection>
+    </>
   );
 };
 
