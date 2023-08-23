@@ -1,5 +1,6 @@
 const HomeFakeData = [
   {
+    id:1,
     title: "Le Roi Singe",
     image:
       "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/1JbSFC91upHU5CuZS065A4qG0NR.jpg",
@@ -7,6 +8,7 @@ const HomeFakeData = [
     note: "8.3",
   },
   {
+    id:2,
     title: "Blue Beetle",
     image:
       "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/xSVtl6ZF7fNuZIoXkZbzI2EzoAD.jpg",
@@ -14,6 +16,7 @@ const HomeFakeData = [
     note: "1.3",
   },
   {
+    id:3,
     title: "Élémentaire",
     image:
       "https://www.themoviedb.org/t/p/w600_and_h900_bestv2/rzY5kUJJ1zGfingV2oHyyxtlGNa.jpg",

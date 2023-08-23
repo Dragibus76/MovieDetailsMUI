@@ -1,17 +1,19 @@
 import React from 'react';
-import { StyledHomeCard, StyledCardMedia,StyledCardContent,TitleTypography,DateTypography,CircularProgressWrapper,CircularProgressLabel } from '../Styles/HomeCardStyled'
+import { StyledHomeCard, StyledCardMedia, StyledCardContent, TitleTypography, DateTypography, CircularProgressWrapper, CircularProgressLabel } from '../Styles/HomeCardStyled';
 import { CircularProgress } from '@mui/material';
 
 const HomeCard = ({ title, image, style, date, note }) => {
-  const percentage = (note / 10) * 100;
+  const limitedNote = Math.min(Math.max(note, 0), 10);
+  const percentage = (limitedNote / 10) * 100;
+  const formattedPercentage = percentage.toFixed(1);
 
   let progressColor;
   if (percentage >= 70) {
-    progressColor = '#21D07A'; 
+    progressColor = '#21D07A';
   } else if (percentage >= 40) {
-    progressColor = '#D2D530'; 
+    progressColor = '#D2D530';
   } else {
-    progressColor = '#DB2360'; 
+    progressColor = '#DB2360';
   }
 
   return (
@@ -22,10 +24,10 @@ const HomeCard = ({ title, image, style, date, note }) => {
           <CircularProgress
             variant="determinate"
             value={percentage}
-            style={{ color: progressColor, background: '#262435', borderRadius:'50%' }}
-            size={30}
+            style={{ color: progressColor, background: '#262435', borderRadius: '50%' }}
+            size={40}
           />
-          <CircularProgressLabel>{`${percentage}%`}</CircularProgressLabel>
+          <CircularProgressLabel>{`${formattedPercentage}%`}</CircularProgressLabel>
         </CircularProgressWrapper>
         <TitleTypography variant="h8" component="div" textAlign="left">
           {title}

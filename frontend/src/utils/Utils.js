@@ -8,3 +8,12 @@ export const getProgressColor = (percentage) => {
     }
   };
   
+  export const formatDate = (rawDate) => {
+    if (!rawDate) {
+      return "Date inconnue";
+    }
+  
+    const options = { day: 'numeric', month: 'long', year: 'numeric' };
+    return new Date(rawDate).toLocaleDateString('fr-FR', options);
+  };
+  

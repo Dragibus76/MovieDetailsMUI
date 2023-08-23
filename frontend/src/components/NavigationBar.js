@@ -57,6 +57,7 @@ function NavigationBar() {
               letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
+              fontSize:"1rem"
             }}
           >
             MOVIEDETAILS
@@ -113,6 +114,7 @@ function NavigationBar() {
               letterSpacing: ".1rem",
               color: "inherit",
               textDecoration: "none",
+              fontSize:"1rem"
             }}
           >
             MOVIEDETAILS
