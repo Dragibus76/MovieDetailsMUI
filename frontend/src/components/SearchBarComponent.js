@@ -1,8 +1,8 @@
 import React from "react";
-import { Select, MenuItem, TextField, Typography } from "@mui/material";
-import CachedIcon from "@mui/icons-material/Cached";
+import { Select, MenuItem, TextField } from "@mui/material";
 
-const SearchBarComponent = ({ selectedType, movieGenres, searchQuery, searching, handleTypeSelect, handleSearchChange }) => {
+
+const SearchBarComponent = ({ selectedType, mediaGenres, searchQuery, searching, handleTypeSelect, handleSearchChange }) => {
   return (
     <div style={{ marginBottom: 20 }}>
       <Select
@@ -12,7 +12,7 @@ const SearchBarComponent = ({ selectedType, movieGenres, searchQuery, searching,
         style={{ marginRight: 20 }}
       >
         <MenuItem value="Tout">Tout</MenuItem>
-        {movieGenres.map((genre) => (
+        {mediaGenres && mediaGenres.map((genre) => (
           <MenuItem key={genre.id} value={genre.id}>
             {genre.name}
           </MenuItem>
@@ -24,12 +24,6 @@ const SearchBarComponent = ({ selectedType, movieGenres, searchQuery, searching,
         value={searchQuery}
         onChange={handleSearchChange}
       />
-      {searching && (
-        <div style={{ alignItems: "center", marginTop: 10 }}>
-          <CachedIcon fontSize="small" style={{ marginRight: 5 }} />
-          <Typography variant="body2">Recherche en cours...</Typography>
-        </div>
-      )}
     </div>
   );
 };

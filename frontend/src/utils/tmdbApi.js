@@ -12,12 +12,13 @@ export const fetchData = async (endpoint, category, params) => {
   }
 };
 
-export const fetchMediaData = async (type, page) => {
+export const fetchMediaData = async (mediaType, type, page) => {
+  const endpoint = mediaType === "films" ? "movie" : "tv";
   const params = type === "Tout" ? `&page=${page}` : `&with_genres=${type}&page=${page}`;
 
   return {
-    mediaData: await fetchData("discover", "movie", params),
-    totalPages: await fetchTotalPages("discover", "movie", params)
+    mediaData: await fetchData("discover", endpoint, params),
+    totalPages: await fetchTotalPages("discover", endpoint, params)
   };
 };
 
@@ -32,25 +33,25 @@ export const fetchTotalPages = async (endpoint, category, params) => {
     throw new Error(`Error fetching total pages: ${error}`);
   }
 };
-
-export const fetchMovieGenres = async () => {
+export const fetchMediaGenres = async (mediaType) => {
   try {
+    const endpoint = mediaType === "films" ? "movie" : "tv";
     const response = await fetch(
-      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=${LANG}`
+      `${BASE_URL}/genre/${endpoint}/list?api_key=${API_KEY}&language=${LANG}`
     );
     const data = await response.json();
     return data.genres;
   } catch (error) {
-    throw new Error(`Error fetching movie genres: ${error}`);
+    throw new Error(`Error fetching media genres: ${error}`);
   }
 };
-
-export const fetchSearchResults = async (query, page) => {
+export const fetchSearchResults = async (query, page, mediaType) => {
+  const endpoint = mediaType === "films" ? "movie" : "tv";
   const params = `&query=${query}&page=${page}`;
 
   return {
-    mediaData: await fetchData("search", "movie", params),
-    totalPages: await fetchTotalPages("search", "movie", params)
+    mediaData: await fetchData("search", endpoint, params),
+    totalPages: await fetchTotalPages("search", endpoint, params)
   };
 };
 
