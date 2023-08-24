@@ -1,71 +1,68 @@
 import { API_KEY, BASE_URL, LANG } from "./config";
 
-// BASE POUR FETCHER LES FILMS
-const fetchMovieData = async (category) => {
+export const fetchData = async (endpoint, category, params) => {
   try {
     const response = await fetch(
-      `${BASE_URL}/movie/${category}?api_key=${API_KEY}&language=${LANG}`
+      `${BASE_URL}/${endpoint}/${category}?api_key=${API_KEY}&language=${LANG}${params}`
     );
     const data = await response.json();
-    return data.results; // Assurez-vous d'adapter la structure de données à vos besoins
+    return data.results;
   } catch (error) {
-    throw new Error(
-      `Erreur lors de la récupération des données pour la catégorie ${category}`
-    );
+    throw new Error(`Error fetching data: ${error}`);
   }
 };
 
-// BASE POUR FETCHER LES SERIES
-const fetchTvData = async (category) => {
+export const fetchMediaData = async (type, page) => {
+  const params = type === "Tout" ? `&page=${page}` : `&with_genres=${type}&page=${page}`;
+
+  return {
+    mediaData: await fetchData("discover", "movie", params),
+    totalPages: await fetchTotalPages("discover", "movie", params)
+  };
+};
+
+export const fetchTotalPages = async (endpoint, category, params) => {
   try {
     const response = await fetch(
-      `${BASE_URL}/tv/${category}?api_key=${API_KEY}&language=${LANG}`
+      `${BASE_URL}/${endpoint}/${category}?api_key=${API_KEY}&language=${LANG}${params}`
     );
     const data = await response.json();
-    return data.results; // Assurez-vous d'adapter la structure de données à vos besoins
+    return data.total_pages;
   } catch (error) {
-    throw new Error(
-      `Erreur lors de la récupération des données pour la catégorie ${category}`
-    );
+    throw new Error(`Error fetching total pages: ${error}`);
   }
 };
 
-// FETCHER LES FILMS DU MOMENT
-export const fetchNowPlayingMovieData = async () => {
-  return fetchMovieData("now_playing");
+export const fetchMovieGenres = async () => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=${LANG}`
+    );
+    const data = await response.json();
+    return data.genres;
+  } catch (error) {
+    throw new Error(`Error fetching movie genres: ${error}`);
+  }
 };
 
-// FETCHER LES FILMS POPULAIRES
-export const fetchPopularMovieData = async () => {
-  return fetchMovieData("popular");
+export const fetchSearchResults = async (query, page) => {
+  const params = `&query=${query}&page=${page}`;
+
+  return {
+    mediaData: await fetchData("search", "movie", params),
+    totalPages: await fetchTotalPages("search", "movie", params)
+  };
 };
 
-// FETCHER LES FILMS LES MIEUX NOTES
-export const fetchTopRatedMovieData = async () => {
-  return fetchMovieData("top_rated");
-};
+export const fetchNowPlayingMovieData = () => fetchData("movie", "now_playing", "");
+export const fetchPopularMovieData = () => fetchData("movie", "popular", "");
+export const fetchTopRatedMovieData = () => fetchData("movie", "top_rated", "");
+export const fetchUpcomingMovieData = () => fetchData("movie", "upcoming", "");
+export const fetchAiringTodayTvData = () => fetchData("tv", "airing_today", "");
+export const fetchOnTheAirTvData = () => fetchData("tv", "on_the_air", "");
+export const fetchPopularTvData = () => fetchData("tv", "popular", "");
+export const fetchTopRatedTvData = () => fetchData("tv", "top_rated", "");
 
-// FETCHER LES FILMS A VENIR
-export const fetchUpcomingMovieData = async () => {
-  return fetchMovieData("upcoming");
-};
 
-// FETCHER LES SERIES DIFUSEE AUJOURD'HUI
-export const fetchAiringTodayTvData = async () => {
-  return fetchTvData("airing_today");
-};
 
-// FETCHER LES SERIES DIFFUSEE SUR LES PALTEFORMES AUJOURD'HUI
-export const fetchOnTheAirTvData = async () => {
-  return fetchTvData("on_the_air");
-};
 
-// FETCHER LES SERIES LES PLUS POPULAIRES
-export const fetchPopularTvData = async () => {
-  return fetchTvData("popular");
-};
-
-// FETCHER LES SERIES LES MIEUX NOTEES
-export const fetchTopRatedTvData = async () => {
-  return fetchTvData("top_rated");
-};
