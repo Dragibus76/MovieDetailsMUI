@@ -68,7 +68,7 @@ const CalendarComponent = () => {
 
   return (
     <>
-    <StyledTitleCalendar variant="h6">Les Prochaines sorties en date</StyledTitleCalendar>
+    <StyledTitleCalendar textAlign="left">Les prochaines sorties en dates</StyledTitleCalendar>
     <StyledCalendarWrapper>
       <StyledCalendar tileContent={tileContent} />
     </StyledCalendarWrapper>

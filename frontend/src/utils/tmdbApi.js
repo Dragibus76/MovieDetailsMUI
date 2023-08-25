@@ -55,6 +55,7 @@ export const fetchSearchResults = async (query, page, mediaType) => {
   };
 };
 
+
 export const fetchNowPlayingMovieData = () => fetchData("movie", "now_playing", "");
 export const fetchPopularMovieData = () => fetchData("movie", "popular", "");
 export const fetchTopRatedMovieData = () => fetchData("movie", "top_rated", "");

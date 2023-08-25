@@ -4,9 +4,7 @@ import { StyledCardHeader, StyledTypographyPseudo, StyledTypographyResponse } fr
 
 const HomeCardComment = ({ avatar, pseudo, extraText }) => {
   return (
-    
     <StyledCardHeader
-    
       avatar={
         avatar ? (
           <Avatar alt={`Avatar de ${pseudo}`} src={avatar} />

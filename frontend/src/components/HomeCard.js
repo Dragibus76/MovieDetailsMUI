@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyledHomeCard, StyledCardMedia, StyledCardContent, TitleTypography, DateTypography, CircularProgressWrapper, CircularProgressLabel } from '../Styles/HomeCardStyled';
 import { CircularProgress, Skeleton } from '@mui/material';
+import CommentIcon from '@mui/icons-material/Comment'; 
 
 const SkeletonHomeCard = () => {
   return (
@@ -23,7 +24,7 @@ const SkeletonHomeCard = () => {
   );
 };
 
-const HomeCard = ({ title, image, style, date, note, loading }) => {
+const HomeCard = ({ title, image, style, date, note, loading, commentCount }) => {
   const limitedNote = Math.min(Math.max(note, 0), 10);
   const percentage = (limitedNote / 10) * 100;
   const formattedPercentage = percentage.toFixed(1);
@@ -41,19 +42,25 @@ const HomeCard = ({ title, image, style, date, note, loading }) => {
     <StyledHomeCard style={{ flex: '0 0 auto', ...style }}>
       <StyledCardMedia component="img" alt={title} image={image} />
       <StyledCardContent>
+      <div style={{ position: 'relative', bottom: 40, left: 55, borderRadius: '50px' }}>
+                <CommentIcon style={{ color: '#fff', fontSize: 15 }} />
+                <span style={{ color: '#fff', fontSize: 15, margin: 5 }}>{commentCount}</span>
+              </div>
         {loading ? (
           <SkeletonHomeCard />
         ) : (
           <>
-            <CircularProgressWrapper>
-              <CircularProgress
-                variant="determinate"
-                value={percentage}
-                style={{ color: progressColor, background: '#262435', borderRadius: '50%' }}
-                size={40}
-              />
-              <CircularProgressLabel>{`${formattedPercentage}%`}</CircularProgressLabel>
-            </CircularProgressWrapper>
+            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
+              <CircularProgressWrapper>
+                <CircularProgress
+                  variant="determinate"
+                  value={percentage}
+                  style={{ color: progressColor, background: '#262435', borderRadius: '50%' }}
+                  size={40}
+                />
+                <CircularProgressLabel>{`${formattedPercentage}%`}</CircularProgressLabel>
+              </CircularProgressWrapper>
+            </div>
             <TitleTypography variant="h8" component="div" textAlign="left">
               {title}
             </TitleTypography>

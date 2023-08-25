@@ -6,7 +6,7 @@ import { StyledHomeCommentSection, StyledHomeCommentTitle } from '../Styles/Home
 const HomeCommentSection = () => {
   return (
     <>
-    <StyledHomeCommentTitle variant="h6" >Ils viennent de donner leurs avis !</StyledHomeCommentTitle>
+    <StyledHomeCommentTitle textAlign="left">Ils viennent de donner leurs avis !</StyledHomeCommentTitle>
     <StyledHomeCommentSection>
       {HomCommentsData.map((comment) => (
         <CommentHomeCard

@@ -18,6 +18,7 @@ export const StyledHomeCard = styled(Card)`
 export const StyledCardMedia = styled(CardMedia)`
   border-radius: 8px 8px 0 0;
   height: 200px;
+  
 `;
 
 export const StyledCardContent = styled(CardContent)`
@@ -31,7 +32,7 @@ export const TitleTypography = styled(Typography)`
   && {
     text-align: left;
     font-weight: 700;
-    margin-top:5px;
+    margin-top:-13px;
   }
 `;
 
@@ -46,8 +47,8 @@ export const DateTypography = styled(Typography)`
 
 export const CircularProgressWrapper = styled.div`
   position: absolute;
-  top: -20px;
-  left: 5px;
+  top: -60px;
+  left: 0px;
 `;
 
 export const CircularProgressLabel = styled.div`

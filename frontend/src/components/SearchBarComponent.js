@@ -1,30 +1,29 @@
 import React from "react";
-import { Select, MenuItem, TextField } from "@mui/material";
-
+import { MenuItem } from "@mui/material";
+import { StyledFindSection, StyledSelect, StyledSearchBar } from '../Styles/SearchBarComponentStyled';
 
 const SearchBarComponent = ({ selectedType, mediaGenres, searchQuery, searching, handleTypeSelect, handleSearchChange }) => {
   return (
-    <div style={{ marginBottom: 20 }}>
-      <Select
+    <StyledFindSection>
+      <StyledSelect
         size="small"
         value={selectedType}
         onChange={handleTypeSelect}
-        style={{ marginRight: 20 }}
-      >
+        style={{ marginRight: 20 }}>
         <MenuItem value="Tout">Tout</MenuItem>
         {mediaGenres && mediaGenres.map((genre) => (
           <MenuItem key={genre.id} value={genre.id}>
             {genre.name}
           </MenuItem>
         ))}
-      </Select>
-      <TextField
+      </StyledSelect>
+      <StyledSearchBar
         size="small"
         label="Rechercher"
         value={searchQuery}
         onChange={handleSearchChange}
-      />
-    </div>
+       style={{margin: "5px"}}/>
+    </StyledFindSection>
   );
 };
 

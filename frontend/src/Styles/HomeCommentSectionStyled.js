@@ -1,14 +1,14 @@
 import styled from "styled-components";
-import { Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 
 export const StyledHomeCommentSection = styled.div`
   margin-top: 2rem;
 
   @media (max-width: 768px) {
-    margin-top: 2rem; // Adjust the margin-top for mobile devices
+    margin-top: 2rem;
   }
 `;
 
-export const StyledHomeCommentTitle = styled(Typography)`
+export const StyledHomeCommentTitle = styled(Divider)`
 
 `;

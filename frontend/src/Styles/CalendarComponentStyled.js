@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Calendar from "react-calendar";
-import { Typography } from "@mui/material";
+import { Divider } from "@mui/material";
 import "react-calendar/dist/Calendar.css";
 
 export const StyledCalendarWrapper = styled.div`
@@ -14,6 +14,6 @@ export const StyledCalendar = styled(Calendar)`
   max-width: 100%;
 `;
 
-export const StyledTitleCalendar = styled(Typography)`
+export const StyledTitleCalendar = styled(Divider)`
   padding-top:3rem;
 `;
