@@ -5,7 +5,7 @@ import { formatDate } from "../../utils/Utils";
 import PaginationComponent from "../../components/PaginationComponent";
 import { fetchMediaGenres, fetchMediaData, fetchSearchResults } from "../../utils/tmdbApi";
 import SearchBarComponent from "../../components/SearchBarComponent";
-import { useParams } from "react-router-dom";
+import { NavLink, useParams } from "react-router-dom";
 import { StyledheaderTextDivider } from '../../Styles/MediaPageStyled';
 
 const MediaPage = () => {
@@ -17,7 +17,7 @@ const MediaPage = () => {
   const [totalPages, setTotalPages] = useState(1);
   const [searchQuery, setSearchQuery] = useState("");
   const [searching, setSearching] = useState(false);
-  const [latestMedia, setLatestMedia] = useState(null);
+
 
   useEffect(() => {
     fetchMediaGenres(mediaType)
@@ -85,6 +85,7 @@ const MediaPage = () => {
       <Grid container spacing={0}>
         {mediaData.map((media) => (
           <Grid item xs={6} sm={3} md={4} lg={2} xl={2} key={media.id}>
+            <NavLink style={{textDecoration: "none"}} to={`/${mediaType}/${media.id}`}>
             <HomeCard
               title={media.title || media.name}
               image={`https://image.tmdb.org/t/p/w600_and_h900_bestv2/${media.poster_path} `}
@@ -93,8 +94,10 @@ const MediaPage = () => {
               commentCount={"10"}
               style={{ margin: "auto" }}
             />
+            </NavLink>
           </Grid>
         ))}
+        
       </Grid>
       <PaginationComponent
         totalPages={totalPages}

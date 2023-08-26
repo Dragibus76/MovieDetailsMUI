@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Grid, Container, Typography, Tabs, Tab, Divider } from "@mui/material";
+import { Grid, Container, Typography, Tabs, Tab } from "@mui/material";
 import HomeCardSection from "../../components/HomeCardSection";
 import HomeCommentSection from "../../components/HomeCommentSection";
 import Calendar from "../../components/Calendar";
