@@ -1,10 +1,11 @@
 import styled from "styled-components";
 import { Divider, Typography } from "@mui/material";
 
+
 export const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
 `;
 
 export const TypographyWeightTitle = styled(Typography)`
@@ -16,6 +17,12 @@ export const TypographyNormalTitle = styled(Typography)`
 font-weight: normal;
 `;
 
+export const TypographyTagline = styled(Typography)`
+font-weight: normal;
+text-align:left;
+font-size:13px!important;
+color:#BDBDBD;
+`;
 export const MediaDetailsDivider = styled(Divider)`
   display: none;
 
@@ -26,8 +33,22 @@ export const MediaDetailsDivider = styled(Divider)`
 `;
 
 export const TypographyCategory = styled(Typography)`
-font-weight: normal;
+font-weight: 700!important;
 font-size: 15px!important;
 color: #BDBDBD;
+text-align: left;
+`;
+
+export const TypographyRuntime = styled(Typography)`
+
+font-size: 15px!important;
+color: #000;
+text-align: left;
+`;
+
+export const IconContainer = styled.div`
+display:flex;
+font-size: 15px!important;
+color: #000;
 text-align: left;
 `;

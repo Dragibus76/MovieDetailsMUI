@@ -85,6 +85,20 @@ export const fetchMediaDetails = async (mediaId, mediaType) => {
   }
 };
 
+// FETCHER LES ISO DES REGIONS
+export const fetchRegions = async () => {
+  try {
+    const response = await fetch(
+      `${BASE_URL}/watch/providers/regions?&language=${LANG}&api_key=${API_KEY}`
+    );
+    const data = await response.json();
+    return data.results;
+  } catch (error) {
+    console.error("Error fetching regions:", error);
+    return [];
+  }
+};
+
 export const fetchNowPlayingMovieData = () => fetchData("movie", "now_playing", "");
 export const fetchPopularMovieData = () => fetchData("movie", "popular", "");
 export const fetchTopRatedMovieData = () => fetchData("movie", "top_rated", "");
