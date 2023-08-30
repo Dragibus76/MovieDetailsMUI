@@ -5,11 +5,11 @@ export const InfoContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-
 `;
 
 export const TypographyWeightTitle = styled(Typography)`
 font-weight: bold!important;
+padding-top: 1rem;
 `;
 
 export const TypographyNormalTitle = styled(Typography)`
@@ -29,4 +29,5 @@ export const TypographyCategory = styled(Typography)`
 font-weight: normal;
 font-size: 15px!important;
 color: #BDBDBD;
+text-align: left;
 `;

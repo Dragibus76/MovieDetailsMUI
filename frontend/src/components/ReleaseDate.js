@@ -3,7 +3,7 @@ import ReleaseDateCard from "./ReleaseDateCard"; // Assurez-vous de mettre le bo
 import {
   StyledCalendarWrapper,
   StyledTitleCalendar
-} from "../Styles/CalendarComponentStyled";
+} from "../Styles/ReleaseDateStyled";
 
 const ReleaseDate = () => {
   return (

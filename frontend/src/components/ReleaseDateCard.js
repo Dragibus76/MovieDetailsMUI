@@ -6,7 +6,7 @@ import {
   StyledListItem,
   StyledImage,
   StyledContent
-} from "../Styles/CalendarCardStyled"; 
+} from "../Styles/ReleaseDateCardStyled"; 
 import { IconButton } from "@mui/material";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
 import { formatDate } from "../utils/Utils";

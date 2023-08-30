@@ -5,10 +5,10 @@ export const ScrollablePersonBox = styled(Box)`
   display: flex;
   overflow: scroll;
   max-width: 100%;
-  padding: 1rem;
+  padding-top: 1rem;
   gap: 1rem;
   &::-webkit-scrollbar {
-    width: 0.5em;
+    width: 0;
   }
 
   &::-webkit-scrollbar-thumb {

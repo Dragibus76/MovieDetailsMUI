@@ -16,6 +16,7 @@ import {
   TypographyCategory,
 } from "../Styles/MediaDetailsPageStyled";
 import PersonCard from "../components/PersonCard";
+import ProductionCompanyComponent from "../components/ProductionCompanyComponent"; // Assurez-vous d'utiliser le bon chemin vers le fichier
 
 const MediaDetailsPage = () => {
   const { mediaType, mediaId } = useParams();
@@ -57,28 +58,35 @@ const MediaDetailsPage = () => {
           </Card>
         </Grid>
         <Grid item xs={12} md={3}>
-          <Divider textAlign="left">Informations</Divider>
-          <Container>
+          <Container style={{paddingTop: "1rem"}}>
+          <Divider textAlign="left">A Propos</Divider>
             <InfoContainer>
               <TypographyWeightTitle variant="body1">
                 {mediaDetails.title}
               </TypographyWeightTitle>
-              <Rating value={mediaDetails.vote_average / 2} precision={0.5} />
+              <Rating value={mediaDetails.vote_average / 2} precision={0.5} style={{paddingTop: "1rem"}} />
             </InfoContainer>
             <InfoContainer>
               <TypographyCategory>{genresWithCommas}</TypographyCategory>
             </InfoContainer>
-
-           
-
           </Container>
           <Container>
             <InfoContainer>
-              <TypographyNormalTitle textAlign="left">
+              <TypographyNormalTitle textAlign="left" style={{paddingTop: "1rem"}}>
                 {mediaDetails.overview}
               </TypographyNormalTitle>
             </InfoContainer>
           </Container>
+
+
+
+       
+          
+
+
+
+
+
         </Grid>
         <Grid item xs={12} md={9}>
           <Divider textAlign="left">Acteurs</Divider>
@@ -87,10 +95,12 @@ const MediaDetailsPage = () => {
             mediaType={mediaType === "films" ? "movie" : "tv"}
           />
         </Grid>
+      
         <Grid item xs={12} md={9}>
-          <Divider textAlign="left">Production</Divider>
-          Production
-        </Grid>
+  <Divider textAlign="left">Société de Production</Divider>
+  <ProductionCompanyComponent productionCompanies={mediaDetails.production_companies} />
+</Grid>
+
         <Grid item xs={12} md={9}>
           <Divider textAlign="left">Poster & Backdrop</Divider>
           Poster & Backdrop
