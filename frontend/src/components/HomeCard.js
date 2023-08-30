@@ -42,33 +42,21 @@ const HomeCard = ({ title, image, style, date, note, loading, commentCount }) =>
     <StyledHomeCard style={{ flex: '0 0 auto', ...style }}>
       <StyledCardMedia component="img" alt={title} image={image} />
       <StyledCardContent>
-      <div style={{ position: 'relative', bottom: 40, left: 55, borderRadius: '50px' }}>
-                <CommentIcon style={{ color: '#fff', fontSize: 15 }} />
-                <span style={{ color: '#fff', fontSize: 15, margin: 5 }}>{commentCount}</span>
-              </div>
-        {loading ? (
-          <SkeletonHomeCard />
-        ) : (
-          <>
-            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-              <CircularProgressWrapper>
-                <CircularProgress
-                  variant="determinate"
-                  value={percentage}
-                  style={{ color: progressColor, background: '#262435', borderRadius: '50%' }}
-                  size={40}
-                />
-                <CircularProgressLabel>{`${formattedPercentage}%`}</CircularProgressLabel>
-              </CircularProgressWrapper>
-            </div>
-            <TitleTypography variant="h8" component="div" textAlign="left">
-              {title}
-            </TitleTypography>
-            <DateTypography variant="body2" component="div" textAlign="left">
-              {date}
-            </DateTypography>
-          </>
-        )}
+        <CircularProgressWrapper>
+          <CircularProgress
+            variant="determinate"
+            value={percentage}
+            style={{ color: progressColor, background: '#262435', borderRadius:'50%' }}
+            size={35}
+          />
+          <CircularProgressLabel>{`${percentage}%`}</CircularProgressLabel>
+        </CircularProgressWrapper>
+        <TitleTypography variant="h8" component="div" textAlign="left">
+          {title}
+        </TitleTypography>
+        <DateTypography variant="body2" component="div" textAlign="left">
+          {date}
+        </DateTypography>
       </StyledCardContent>
     </StyledHomeCard>
   );

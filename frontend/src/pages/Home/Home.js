@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Grid, Container, Typography, Tabs, Tab } from "@mui/material";
 import HomeCardSection from "../../components/HomeCardSection";
 import HomeCommentSection from "../../components/HomeCommentSection";
-import Calendar from "../../components/Calendar";
+import ReleaseDate from "../../components/ReleaseDate";
 
 const Home = () => {
   const [activeTabFilms, setActiveTabFilms] = useState(0);
@@ -68,7 +68,7 @@ const Home = () => {
         </Grid>
         <Grid item xs={12} md={3}>
           <HomeCommentSection/>
-          <Calendar/>
+          <ReleaseDate/>
         </Grid>
       </Grid>
     </Container>

@@ -12,6 +12,20 @@ export const StyledCalendarWrapper = styled.div`
 
 export const StyledCalendar = styled(Calendar)`
   max-width: 100%;
+
+  .today-marker {
+    background-color: blue;
+    border-radius: 50%!important;
+    padding: 5px;
+
+    .today-content {
+      color: white;
+    }
+  }
+
+  .upcoming-marker {
+    color: gray;
+  }
 `;
 
 export const StyledTitleCalendar = styled(Divider)`

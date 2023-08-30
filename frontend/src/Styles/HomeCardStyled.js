@@ -4,6 +4,7 @@ import {
   CardContent,
   CardMedia,
   Typography,
+  CircularProgress,
 } from "@mui/material";
 
 export const StyledHomeCard = styled(Card)`
@@ -16,9 +17,8 @@ export const StyledHomeCard = styled(Card)`
 `;
 
 export const StyledCardMedia = styled(CardMedia)`
-  border-radius: 8px 8px 0 0;
+  border-radius: 8px;
   height: 200px;
-  
 `;
 
 export const StyledCardContent = styled(CardContent)`
@@ -32,7 +32,7 @@ export const TitleTypography = styled(Typography)`
   && {
     text-align: left;
     font-weight: 700;
-    margin-top:-13px;
+    margin-top:10px;
   }
 `;
 
@@ -47,8 +47,8 @@ export const DateTypography = styled(Typography)`
 
 export const CircularProgressWrapper = styled.div`
   position: absolute;
-  top: -60px;
-  left: 0px;
+  top: -15px;
+  left: 10px;
 `;
 
 export const CircularProgressLabel = styled.div`
@@ -56,7 +56,7 @@ export const CircularProgressLabel = styled.div`
   top: 45%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 9px;
+  font-size: 8px;
   color: #fff;
   font-weight: bold;
 `;
