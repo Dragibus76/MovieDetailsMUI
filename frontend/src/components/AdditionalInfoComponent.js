@@ -17,8 +17,8 @@ const AdditionalInfoComponent = ({ mediaDetails }) => {
   };
 
   const infoPairs = [
-    { label: "Budget :", value: `${mediaDetails.budget}$` },
-    { label: "Revenue :", value: `${mediaDetails.revenue}$` },
+    { label: "Budget :", value: `${mediaDetails.budget} $` },
+    { label: "Revenue :", value: `${mediaDetails.revenue} $` },
     { label: "Nombre d'avis :", value: "A FAIRE PLUS TARD" },
     { label: "Titre Original :", value: mediaDetails.original_title },
     { 

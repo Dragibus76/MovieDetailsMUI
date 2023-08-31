@@ -14,7 +14,6 @@ const PersonCard = ({ movieId, mediaType }) => {
   useEffect(() => {
     fetchMediaCast(movieId, mediaType)
       .then((castData) => {
-        console.log("Cast data:", castData);
         setCast(castData);
       })
       .catch((error) => {

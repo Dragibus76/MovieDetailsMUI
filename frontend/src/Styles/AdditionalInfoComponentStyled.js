@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 export const AdditionalInfoContainer = styled(Typography)`
  text-align:left;
+ padding:0.3rem;
 `;
 
 export const TypographyWeightSection = styled(Typography)`

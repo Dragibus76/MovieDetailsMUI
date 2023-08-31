@@ -8,7 +8,7 @@ export const StyledProductionDetails = styled.div`
   justify-content:center;
   padding-top: 1rem;
   @media (min-width: 769px) {
-       justify-content:start;
+       justify-content:center;
     }
 `;
 

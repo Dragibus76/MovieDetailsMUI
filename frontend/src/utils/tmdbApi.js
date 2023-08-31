@@ -99,6 +99,24 @@ export const fetchRegions = async () => {
   }
 };
 
+export const fetchWatchProviders = async (mediaId, mediaType) => {
+  const mediaTypeMapping = {
+    films: "movie",
+    series: "tv"
+  };
+
+  const actualMediaType = mediaTypeMapping[mediaType] || mediaType;
+
+  const response = await fetch(
+    `${BASE_URL}/${actualMediaType}/${mediaId}/watch/providers?api_key=${API_KEY}`
+  );
+  const data = await response.json();
+  return data.results;
+};
+
+
+
+
 export const fetchNowPlayingMovieData = () => fetchData("movie", "now_playing", "");
 export const fetchPopularMovieData = () => fetchData("movie", "popular", "");
 export const fetchTopRatedMovieData = () => fetchData("movie", "top_rated", "");
