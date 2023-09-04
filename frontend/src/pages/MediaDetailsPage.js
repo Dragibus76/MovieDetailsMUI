@@ -7,6 +7,7 @@ import ProductionCompanyComponent from "../components/ProductionCompanyComponent
 import AdditionalInfoComponent from "../components/AdditionalInfoComponent";
 import AboutMediaComponent from "../components/AboutMediaComponent";
 import BuyMediaComponent from "../components/BuyMediaComponent";
+import PosterBackdropTabs from "../components/PosterBackdropTabs";
 
 const MediaDetailsPage = () => {
   const { mediaType, mediaId } = useParams();
@@ -58,7 +59,7 @@ const MediaDetailsPage = () => {
         </Grid>
         <Grid item xs={12} md={9}>
           <Divider textAlign="left">Poster & Backdrop</Divider>
-          Poster & Backdrop
+          <PosterBackdropTabs mediaId={mediaId} mediaType={mediaType} />
         </Grid>
         <Grid item xs={12} md={3}>
           <Divider textAlign="left">Informations Supplémentaires</Divider>

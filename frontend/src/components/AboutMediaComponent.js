@@ -6,6 +6,8 @@ import {
   Divider,
   Grid,
   Rating,
+  Button,
+  IconButton
 } from "@mui/material";
 import {
   InfoContainer,
@@ -14,9 +16,12 @@ import {
   TypographyCategory,
   TypographyRuntime,
   IconContainer,
-  TypographyTagline
+  TypographyTagline,
+  FavoriteListIconContainer,
+  ListIconFavorite,
+  ListIconWatchList
 } from "../Styles/MediaDetailsPageStyled";
-import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import VideocamIcon from '@mui/icons-material/Videocam';
 
 const AboutMediaComponent = ({ mediaDetails, mediaType }) => {
   const genresWithCommas = mediaDetails.genres
@@ -42,26 +47,22 @@ const AboutMediaComponent = ({ mediaDetails, mediaType }) => {
       <Grid item xs={12} md={3}>
         <Container style={{ paddingTop: "1rem" }}>
           <Divider textAlign="left">A Propos</Divider>
+          <Container>
+        </Container>
           <InfoContainer>
             <TypographyWeightTitle variant="body1">
-              {mediaDetails.title}
+              {mediaDetails.title || mediaDetails.name}
             </TypographyWeightTitle>
-            <Rating
-              value={mediaDetails.vote_average / 2}
-              precision={0.5}
-              style={{ paddingTop: "1rem" }}
-            />
           </InfoContainer>
           <TypographyTagline variant="body1">
-            "{mediaDetails.tagline}"
+            {mediaDetails.tagline || null}
           </TypographyTagline>
           <InfoContainer>
             <TypographyCategory>{genresWithCommas}</TypographyCategory>
           </InfoContainer>
           <InfoContainer>
             <IconContainer>
-              <AccessTimeIcon/>
-              <TypographyRuntime>{mediaDetails.runtime} minutes</TypographyRuntime>
+              <TypographyRuntime>{mediaDetails.runtime || `${mediaDetails.episode_run_time} minutes • ${mediaDetails.number_of_seasons} Saisons • ${mediaDetails.number_of_episodes} Episodes`} </TypographyRuntime>
             </IconContainer>
           </InfoContainer>
         </Container>
@@ -75,6 +76,32 @@ const AboutMediaComponent = ({ mediaDetails, mediaType }) => {
             </TypographyNormalTitle>
           </InfoContainer>
         </Container>
+        <Container>
+          <InfoContainer>
+          <Button style={{margin:"10px auto"}} variant="contained" size="small" endIcon={<VideocamIcon />}>
+          Bande Annonce
+        </Button>
+          </InfoContainer>
+        </Container>
+        <Divider/>
+
+        <FavoriteListIconContainer>
+          <div>
+          <Rating
+              value={mediaDetails.vote_average / 2}
+              precision={0.5}
+              style={{ paddingTop: "0.5rem" }}
+            />
+          </div>
+          <div>
+          <IconButton>
+            <ListIconFavorite/>
+          </IconButton>
+          <IconButton>
+            <ListIconWatchList/>
+          </IconButton>
+          </div>
+        </FavoriteListIconContainer>
       </Grid>
     </Grid>
   );

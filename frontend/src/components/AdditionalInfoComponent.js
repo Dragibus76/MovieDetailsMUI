@@ -33,7 +33,7 @@ const AdditionalInfoComponent = ({ mediaDetails }) => {
     <AdditionalInfoContainer>
       {infoPairs.map((pair, index) => (
         <div key={index}>
-          <TypographyWeightSection variant="h7">{pair.label}</TypographyWeightSection>
+          <TypographyWeightSection variant="h7">{pair.label || null}</TypographyWeightSection>
           <TypographyNormalSection>{pair.value}</TypographyNormalSection>
         </div>
       ))}

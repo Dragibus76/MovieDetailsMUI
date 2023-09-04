@@ -114,6 +114,22 @@ export const fetchWatchProviders = async (mediaId, mediaType) => {
   return data.results;
 };
 
+export const fetchPosters = async (mediaId, mediaType) => {
+  try {
+    // Déterminez le type de média réel à utiliser dans l'URL du fetch
+    const actualMediaType = mediaType === "films" ? "movie" : "tv";
+
+    const response = await fetch(
+      `https://api.themoviedb.org/3/${actualMediaType}/${mediaId}/images?api_key=${API_KEY}`
+    );
+    const data = await response.json();
+    return data.posters;
+  } catch (error) {
+    throw new Error("Error fetching posters: " + error);
+  }
+};
+
+
 
 
 
